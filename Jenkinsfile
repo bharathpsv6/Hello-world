@@ -1,5 +1,8 @@
 
 pipeline {
+    parameters {
+  choice choices: ['dev', 'stg', 'master'], description: 'pls select your branch', name: 'Branch'
+}
     agent any
 environment {
   PATH = "/opt/maven/bin:$PATH"
@@ -16,7 +19,7 @@ environment {
 [
 $class: 'GitSCM', 
 branches: [
-[name: '*/master']], 
+    [name: '*/${Branch}']], 
 extensions: [], 
 userRemoteConfigs: [
 [credentialsId: 'githubcred', 
