@@ -63,5 +63,7 @@ stage('deploy'){
                 )
             ], 
             contextPath: 'dev', war: '**/*.war'
+    }
+}
         }
 }
