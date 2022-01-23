@@ -37,7 +37,7 @@ sh 'mvn package'
 stage('Artifact upload'){
 steps{
     script{
-    def mavenpom=readMavenPom 'pom.xml'
+    def mavenpom - readMavenPom file: 'pom.xml'
 nexusArtifactUploader artifacts: [
 [artifactId: 
 'hello-world-war', 
