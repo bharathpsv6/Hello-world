@@ -36,12 +36,12 @@ sh 'mvn package'
 }
 stage('Artifact upload'){
 steps{
+    def mavenpom=readMavenPom 'pom.xml'
 nexusArtifactUploader artifacts: [
 [artifactId: 
 'hello-world-war', 
 classifier: '', 
-file: 
-'target/hello-world-war-3.0.1.war', 
+file: "target/hello-world-war-${mavenpom.version}.war", 
 type: 'war']
 ], 
 credentialsId: 'nexus-cred', 
@@ -50,7 +50,7 @@ nexusUrl: '3.110.127.95:8081',
 nexusVersion: 'nexus3', 
 protocol: 'http', 
 repository: 'Myrepo', 
-version: ' 3.0.1 '
+    version: "${mavenpom.version}"
 }
 }
 stage('deploy'){
