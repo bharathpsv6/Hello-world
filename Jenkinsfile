@@ -53,6 +53,15 @@ repository: 'Myrepo',
 version: ' 3.0.2 '
 }
 }
-
-    }
+stage('deploy'){
+    steps{
+        deploy adapters: 
+            [
+                tomcat8(
+                    credentialsId: 'Tomcat-credentials', 
+                    path: '', url: 'http://13.235.135.73:8080'
+                )
+            ], 
+            contextPath: 'dev', war: '**/*.war'
+        }
 }
