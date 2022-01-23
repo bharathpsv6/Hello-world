@@ -46,7 +46,7 @@ type: 'war']
 ], 
 credentialsId: 'nexus-cred', 
 groupId: 'com.efsavage', 
-nexusUrl: '13.234.239.94:8081', 
+nexusUrl: '3.110.127.95:8081', 
 nexusVersion: 'nexus3', 
 protocol: 'http', 
 repository: 'Myrepo', 
