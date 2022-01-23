@@ -41,7 +41,7 @@ nexusArtifactUploader artifacts: [
 'hello-world-war', 
 classifier: '', 
 file: 
-'/var/lib/jenkins/workspace/devopslearn/target/hello-world-war-3.0.2.war', 
+'target/hello-world-war-3.0.1.war', 
 type: 'war']
 ], 
 credentialsId: 'nexus-cred', 
@@ -50,7 +50,7 @@ nexusUrl: '3.110.127.95:8081',
 nexusVersion: 'nexus3', 
 protocol: 'http', 
 repository: 'Myrepo', 
-version: ' 3.0.2 '
+version: ' 3.0.1 '
 }
 }
 stage('deploy'){
