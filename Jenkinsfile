@@ -36,6 +36,7 @@ sh 'mvn package'
 }
 stage('Artifact upload'){
 steps{
+    script{
     def mavenpom=readMavenPom 'pom.xml'
 nexusArtifactUploader artifacts: [
 [artifactId: 
@@ -51,6 +52,7 @@ nexusVersion: 'nexus3',
 protocol: 'http', 
 repository: 'Myrepo', 
     version: "${mavenpom.version}"
+}
 }
 }
 stage('deploy'){
