@@ -1,0 +1,12 @@
+---
+- hosts: app
+  become: true
+  tasks:
+  - name: copy the war file
+    copy:
+      src: target/hello.war
+      dest: /opt/tomcat/webapps/
+  - name: stop the tomcat
+    shell: nohup /opt/tomcat/bin/shutdown.sh
+  - name: starting the tomcat
+    shell: nohup /opt/tomcat/bin/start.sh
